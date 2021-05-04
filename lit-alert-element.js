@@ -1,5 +1,5 @@
 // Import the LitElement base class and html helper function
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 
 
 // Extend the LitElement base class
@@ -86,33 +86,20 @@ _getCloseIcon(){
     </div>`;
 }
 
-  /**
-   * Implement `render` to define a template for your element.
-   *
-   * You must provide an implementation of `render` for any element
-   * that uses LitElement as a base class.
-   */
-  render(){
-    /**
-     * `render` must return a lit-html `TemplateResult`.
-     *
-     * To create a `TemplateResult`, tag a JavaScript template literal
-     * with the `html` helper function:
-     */
-    return html`
-    <style>
-.alert-box{
-  position:absolute;
-  min-width:255px;
-  min-height:50px;
-  top:20px;
-  right:20px;
-  -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
-  border-radius: 5px;
-  text-align: center;
-}
+static get styles() {
+  return css`
+    .alert-box{
+      position:absolute;
+      min-width:255px;
+      min-height:50px;
+      top:20px;
+      right:20px;
+      -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+      border-radius: 5px;
+      text-align: center;
+    }
 
 .container {
   float: right;
@@ -180,14 +167,14 @@ _getCloseIcon(){
 }
 
 .close {
-    position: absolute;
-    right: 22px;
-    top: 40%;
-    width: 14px;
-    cursor:pointer;
-    height: 14px;
+  position: absolute;
+  right: 22px;
+  top: 40%;
+  width: 14px;
+  cursor:pointer;
+  height: 14px;
   fill:#878787;
-    transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .remove{
@@ -221,8 +208,23 @@ _getCloseIcon(){
 .toast--yellow:before{
   background-color:#FFC007;
 }
-    </style>
+  `;
+}
 
+  /**
+   * Implement `render` to define a template for your element.
+   *
+   * You must provide an implementation of `render` for any element
+   * that uses LitElement as a base class.
+   */
+  render(){
+    /**
+     * `render` must return a lit-html `TemplateResult`.
+     *
+     * To create a `TemplateResult`, tag a JavaScript template literal
+     * with the `html` helper function:
+     */
+    return html`
 <div class="container">
   <div class="cell">
     <div class="toast ${this._getClass()}">
