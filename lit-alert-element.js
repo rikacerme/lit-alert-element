@@ -22,7 +22,7 @@ constructor() {
   this.icon = "&star;";
 }
 
-getIcon(){
+_getIcon(){
   switch (this.type) {
     case "danger":
       return html` <div class="toast__icon">
@@ -62,7 +62,7 @@ getIcon(){
   }
 }
 
-getClass(){
+_getClass(){
   switch (this.type) {
     case "success":
       return "toast--green add-margin"
@@ -83,7 +83,7 @@ closeAlert(){
   this.remove();
 }
 
-getCloseIcon(){
+_getCloseIcon(){
   return html`<div class="toast__close" @click="${this.closeAlert}">
       <span class="remove">&#10006;</span>
     </div>`;
@@ -228,13 +228,13 @@ getCloseIcon(){
 
 <div class="toast__container">
   <div class="toast__cell">
-    <div class="toast ${this.getClass()}">
-      ${this.getIcon()}
+    <div class="toast ${this._getClass()}">
+      ${this._getIcon()}
       <div class="toast__content">
         <p class="toast__type">${this.header}</p>
         <p class="toast__message">${this.message}</p>
       </div>
-      ${this.getCloseIcon()}
+      ${this._getCloseIcon()}
     </div>
   </div>
 </div> `;
