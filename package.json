@@ -1,13 +1,10 @@
 {
-  "name": "seed-element",
+  "name": "lit-alert-element",
   "version": "0.0.1",
-  "description": "Starting point for lit elements.",
-  "main": "seed-element.js",
-  "repository": "https://github.com/lit-elements/seed-element.git",
-  "author": "Dryamov Vyacheslav <dryamov.dev@gmail.com>",
-  "license": "MIT",
+  "description": "Starting point for alert lit elements.",
+  "main": "lit-alert-element.js",
   "scripts": {
-    "serve": "polymer serve",
+    "start": "polymer serve",
     "build": "polymer build"
   },
   "dependencies": {

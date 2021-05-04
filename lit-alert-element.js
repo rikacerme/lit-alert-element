@@ -3,24 +3,22 @@ import { LitElement, html } from 'lit-element';
 
 
 // Extend the LitElement base class
-class SeedElement extends LitElement {
+class LitAlertElement extends LitElement {
 
   static get properties() { return {
     type: { type: String },
     header:{type:String},
     message: { type: String },
-    icon:{type:String},
-_typeList:{type:Array}
-
+    _typeList:{type:Array}
   };
 }
 
 constructor() {
   super();
+
   this._typeList = ["danger", "info","success" ]
   this.type = this._typeList[1];
-  this.header = "Başlık";
-  this.message = 'Bu bir mesajdır.';
+  this.header = "Default Header";
   this.icon = "&star;";
 }
 
@@ -67,26 +65,28 @@ getIcon(){
 getClass(){
   switch (this.type) {
     case "success":
-      return html`toast--green`
+      return "toast--green add-margin"
       
       break;
     case "info":
-      return html`toast--blue add-margin`
+      return "toast--blue add-margin"
       
       break;
     case "danger":
-      return html`toast--yellow add-margin`
+      return "toast--yellow"
       
       break;
   }
 }
 
+closeAlert(){
+  this.remove();
+}
+
 getCloseIcon(){
-  return html`<div class="toast__close">
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.642 15.642" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 15.642 15.642">
-<path fill-rule="evenodd" d="M8.882,7.821l6.541-6.541c0.293-0.293,0.293-0.768,0-1.061  c-0.293-0.293-0.768-0.293-1.061,0L7.821,6.76L1.28,0.22c-0.293-0.293-0.768-0.293-1.061,0c-0.293,0.293-0.293,0.768,0,1.061  l6.541,6.541L0.22,14.362c-0.293,0.293-0.293,0.768,0,1.061c0.147,0.146,0.338,0.22,0.53,0.22s0.384-0.073,0.53-0.22l6.541-6.541  l6.541,6.541c0.147,0.146,0.338,0.22,0.53,0.22c0.192,0,0.384-0.073,0.53-0.22c0.293-0.293,0.293-0.768,0-1.061L8.882,7.821z"></path>
-</svg>
-</div>`;
+  return html`<div class="toast__close" @click="${this.closeAlert}">
+      <span class="remove">&#10006;</span>
+    </div>`;
 }
 
   /**
@@ -111,22 +111,10 @@ getCloseIcon(){
   top:20px;
   right:20px;
   -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
-border-radius: 5px;
-    text-align: center;
-}
-
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i');
-
-html, body{
-  height:100%;
-  width:100%;
-  font-family: 'Raleway', sans-serif;
-  background-color:#efefef;
-  display: table;
+  -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+  border-radius: 5px;
   text-align: center;
-
 }
 
 .toast__container {
@@ -137,36 +125,30 @@ html, body{
   display:inline-block;
 }
 
-.add-margin{
-  margin-top:20px;
-}
-
 .toast__svg{
   fill:#fff;
 }
 
 .toast {
   text-align:left;
-    padding: 21px 0;
-    background-color:#fff;
-    border-radius:4px;
-    max-width: 500px;
-    top: 0px;
-    position:relative;
-    box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.2);
+  padding: 21px 0;
+  background-color:#fff;
+  border-radius:4px;
+  max-width: 500px;
+  top: 0px;
+  position:relative;
+  box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.2);
 }
 
-
 .toast:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
   border-top-left-radius:4px;
   border-bottom-left-radius: 4px;
-
 }
 
 .toast__icon{
@@ -189,10 +171,10 @@ html, body{
 }
 
 .toast__message {
-    font-size: 14px;
-    margin-top: 0;
+  font-size: 14px;
+  margin-top: 0;
   margin-bottom: 0;
-    color: #878787;
+  color: #878787;
 }
 
 .toast__content{
@@ -203,12 +185,16 @@ html, body{
 .toast__close {
     position: absolute;
     right: 22px;
-    top: 50%;
+    top: 40%;
     width: 14px;
     cursor:pointer;
     height: 14px;
   fill:#878787;
     transform: translateY(-50%);
+}
+
+.remove{
+  font-size:20px;
 }
 
 .toast--green .toast__icon{
@@ -225,6 +211,10 @@ html, body{
 
 .toast--blue:before{
   background-color:#1D72F3;
+}
+
+.toast--yellow, .toast--blue, .toast--green {
+  margin-top:20px;
 }
 
 .toast--yellow .toast__icon{
@@ -247,12 +237,9 @@ html, body{
       ${this.getCloseIcon()}
     </div>
   </div>
-</div>
-
-    `;
+</div> `;
   }
 }
 
-
 // Register the new element with the browser.
-customElements.define('seed-element', SeedElement);
+customElements.define('lit-alert-element', LitAlertElement);

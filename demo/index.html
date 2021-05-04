@@ -1,8 +1,34 @@
 <head>
-    <script type="module" src="../seed-element.js"></script>
+    <script type="module" src="../lit-alert-element.js"></script>
+    <style>
+        body{
+            margin: auto 180px;
+            min-width: 480px;
+        }
+        html, body{
+            font-family: 'Raleway', sans-serif;
+            background-color:#efefef;
+        }
+        .header{
+            text-align: center;
+            margin: 30px;
+            font-size: x-large;
+        }
+        .examples{
+            width: 100%;
+    height: 105px;
+        }
+    </style>
 </head>
 <body>
-    <seed-element type="success"></seed-element>
-    <seed-element style="margin-top:170px;" type="info"></seed-element>
-    <seed-element style="margin-top:370px;" type="danger"></seed-element>
+    <div class="header">Examples of the component</div>
+    <div class="examples">
+        <lit-alert-element header="First example" type="success"></lit-alert-element>
+    </div>
+    <div class="examples">
+        <lit-alert-element message="example message from page" type="info"></lit-alert-element>
+    </div>
+    <div class="examples">
+        <lit-alert-element header="Danger element" message="example message2 from page" type="danger"></lit-alert-element>
+    </div>
 </body>
