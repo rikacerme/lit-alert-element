@@ -27,3 +27,5 @@ This component used https://github.com/lit-elements/seed-element/tree/b78bb2f4fd
 ```html
 <lit-alert-element header="Danger element" message="example message2 from page" type="danger"></lit-alert-element>
 ```
+
+![Lit alert example](./demo/lit-alert-examples.png)
