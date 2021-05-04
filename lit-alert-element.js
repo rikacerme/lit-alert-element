@@ -25,18 +25,17 @@ constructor() {
 _getIcon(){
   switch (this.type) {
     case "danger":
-      return html` <div class="toast__icon">
-      <svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 301.691 301.691" style="enable-background:new 0 0 301.691 301.691;" xml:space="preserve">
+      return html` 
+      <svg version="1.1" class="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 301.691 301.691" style="enable-background:new 0 0 301.691 301.691;" xml:space="preserve">
       <g>
         <polygon points="119.151,0 129.6,218.406 172.06,218.406 182.54,0  "></polygon>
         <rect x="130.563" y="261.168" width="40.525" height="40.523"></rect>
       </g>
-          </svg>
-        </div>`;
+          </svg>`;
       break;
     case "info":
-      return html`<div class="toast__icon">
-      <svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+      return html`
+      <svg version="1.1" class="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
       <g>
         <g id="info">
           <g>
@@ -46,16 +45,14 @@ _getIcon(){
         </g>
       </g>
       
-          </svg>
-        </div>`;
+          </svg>`;
       break;
     case "success":
-      return html`<div class="toast__icon">
-      <svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+      return html`
+      <svg version="1.1" class="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
   <g><g><path d="M504.502,75.496c-9.997-9.998-26.205-9.998-36.204,0L161.594,382.203L43.702,264.311c-9.997-9.998-26.205-9.997-36.204,0    c-9.998,9.997-9.998,26.205,0,36.203l135.994,135.992c9.994,9.997,26.214,9.99,36.204,0L504.502,111.7    C514.5,101.703,514.499,85.494,504.502,75.496z"></path>
     </g></g>
-      </svg>
-    </div>`
+      </svg>`
 
       break;
   
@@ -84,7 +81,7 @@ closeAlert(){
 }
 
 _getCloseIcon(){
-  return html`<div class="toast__close" @click="${this.closeAlert}">
+  return html`<div class="close" @click="${this.closeAlert}">
       <span class="remove">&#10006;</span>
     </div>`;
 }
@@ -117,15 +114,15 @@ _getCloseIcon(){
   text-align: center;
 }
 
-.toast__container {
+.container {
   float: right;
 }
 
-.toast__cell{
+.cell{
   display:inline-block;
 }
 
-.toast__svg{
+.svg{
   fill:#fff;
 }
 
@@ -151,7 +148,7 @@ _getCloseIcon(){
   border-bottom-left-radius: 4px;
 }
 
-.toast__icon{
+.icon{
   position:absolute;
   top:50%;
   left:22px;
@@ -163,26 +160,26 @@ _getCloseIcon(){
   display:inline-block;
 }
 
-.toast__type {
+.type {
   color: #3e3e3e;
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 8px;
 }
 
-.toast__message {
+.message {
   font-size: 14px;
   margin-top: 0;
   margin-bottom: 0;
   color: #878787;
 }
 
-.toast__content{
+.content{
   padding-left:70px;
   padding-right:60px;
 }
 
-.toast__close {
+.close {
     position: absolute;
     right: 22px;
     top: 40%;
@@ -197,7 +194,7 @@ _getCloseIcon(){
   font-size:20px;
 }
 
-.toast--green .toast__icon{
+.toast--green .icon{
   background-color:#2BDE3F;
 }
 
@@ -205,7 +202,7 @@ _getCloseIcon(){
   background-color:#2BDE3F;
 }
 
-.toast--blue .toast__icon{
+.toast--blue .icon{
   background-color:#1D72F3;
 }
 
@@ -217,7 +214,7 @@ _getCloseIcon(){
   margin-top:20px;
 }
 
-.toast--yellow .toast__icon{
+.toast--yellow .icon{
   background-color:#FFC007;
 }
 
@@ -226,13 +223,13 @@ _getCloseIcon(){
 }
     </style>
 
-<div class="toast__container">
-  <div class="toast__cell">
+<div class="container">
+  <div class="cell">
     <div class="toast ${this._getClass()}">
-      ${this._getIcon()}
-      <div class="toast__content">
-        <p class="toast__type">${this.header}</p>
-        <p class="toast__message">${this.message}</p>
+    <div class="icon">${this._getIcon()}</div>
+      <div class="content">
+        <p class="type">${this.header}</p>
+        <p class="message">${this.message}</p>
       </div>
       ${this._getCloseIcon()}
     </div>
