@@ -3,6 +3,13 @@
   "version": "0.0.1",
   "description": "Starting point for alert lit elements.",
   "main": "lit-alert-element.js",
+  "author": {
+    "name": "emrecakir",
+    "email": "rikacerme@gmail.com",
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
   "scripts": {
     "start": "polymer serve",
     "build": "polymer build"
