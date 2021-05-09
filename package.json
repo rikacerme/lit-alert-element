@@ -1,15 +1,22 @@
 {
-  "name": "lit-alert-element",
+  "name": "@litcomponents/lit-alert-element",
   "version": "0.0.1",
   "description": "Starting point for alert lit elements.",
   "main": "lit-alert-element.js",
   "author": {
     "name": "emrecakir",
-    "email": "rikacerme@gmail.com",
+    "email": "rikacerme@gmail.com"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
+    "access": "public",
+    "name": "lit-alert-element",
+    "registry":"https://npm.pkg.github.com/emre.cakir"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rikacerme/lit-alert-element.git"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "polymer serve",
     "build": "polymer build"

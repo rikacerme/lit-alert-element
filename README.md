@@ -2,6 +2,13 @@
 
 This component used https://github.com/lit-elements/seed-element/tree/b78bb2f4fd30c755a209c13cce70bf5cac003f6d as a seed
 
+## Instal ans Serve
+
+npm i
+
+After that
+npm start
+
 ## Parameters
 
 | Name  | type  | default  | description  |
